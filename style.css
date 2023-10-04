@@ -1,0 +1,381 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Kaushan+Script&family=Poppins:wght@400;500;700&family=Quicksand:wght@400;500;600;700&display=swap');
+
+:root{
+  --ff-lg: 2.6rem;
+  --ff-md: 1.2rem;
+  --ff-sm: 1rem;
+}
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  background-image: linear-gradient(to bottom, #161B4A, #567AC1, #524FB2) ;
+  background: #FFB1EF;
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-family: 'Fredoka', sans-serif;
+  color: #333;
+  height: 100vh;
+}
+
+h3{
+  font-family: 'Kaushan Script', cursive;
+}
+
+.con{
+  /* From https://css.glass 
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.1);*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  isolation: isolate;
+  transition: all .5s ease-in-out;
+}
+
+.con .card{
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 1);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 2px solid rgba(255, 225, 255, 0.3);
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 1fr;
+  padding: 10px;
+  transition: all 1s ease-in-out;
+  width: 80%;
+}
+
+.con .card .card-img{
+  --height: 50px ;
+  
+  min-height: var(--height);
+  padding: 15px;
+  position: relative;
+}
+
+.card .card-img .img-con{
+  aspect-ratio: 1/1;
+  background: rgba(100, 225, 100, 0.2);
+  background: rgba(255, 255, 255, 1);
+  border-radius: 50%;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 92%;
+  z-index: -1;
+}
+
+.card .card-img .main-img{
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.con .card .card-text{
+  display: grid;
+  padding: 0 20px 20px;
+}
+
+.con .card .card-text h3{
+  color: #555;
+  font-size: var(--ff-lg);
+  font-weight: 500;
+  margin-block: 0px 10px;
+  position: relative;
+  text-align: center;
+}
+
+.con .card .card-text h3 span{
+  color: #E15656;
+  font-size: calc( var(--ff-lg) + 0.4rem);
+}
+
+.con .card .card-text h3:after{
+  animation: colorText 15s infinite;
+  color: #E15656;
+  content: '- NKECHI -';
+  font-size: var(--ff-sm);
+  font-weight: bolder;
+  position: absolute;
+  bottom: -30%;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  transition: all 1s ease-in-out;
+}
+
+.con .card .card-text p{
+  color: #666;
+  font-size: var(--ff-md);
+  margin: 20px auto;
+  text-align: center;
+}
+
+@keyframes colorText{
+  0% {
+    color: #E15656;
+  }
+  20% {
+    color: #FF9F4A;  
+  }
+  40% {
+    color: #6EFF25;
+  }
+  60%{
+    color: #25F5FF;
+  }
+  80%{
+    color: #C725FF;
+  }
+  100%{
+    color: #E15656;
+  }
+}
+
+.con .card .card-text .btn{
+  /* animation: colorBg 15s infinite; */
+  background: #E15656 ;
+  border: none;
+  border-radius: 10px;
+  color: #f4f4f4;
+  font-size: var(--ff-md);
+  font-weight: 600;
+  margin: 1px auto;
+  outline: none;
+  padding: 5% 15%;
+  transition: all 1s ease-in-out;
+}
+
+
+.overlay{
+  background: #4F3E2AE6;
+  display: grid;
+  place-content: center;
+  height: 100%;
+  position: fixed;
+  inset: 0;
+  transition: all 0.4s ease-in-out;
+  width: 100%;
+  visibility: hidden;
+  z-index: -1;
+}
+
+.open-modal{
+  visibility: visible;
+  z-index: 10;
+}
+
+.overlay .wish-card{
+  aspect-ratio: 1.5/1;
+  background: #f5f5f5; 
+  border-radius: 16px;
+  margin-inline: auto;
+  overflow: hidden;
+  padding: 15px;
+  position: relative;
+  width: 95%;
+  max-width: 620px;
+}
+
+.overlay .wish-card .wish-text{
+  min-height: 200px;
+  width: 100%;
+}
+
+.overlay .wish-card .wish-text h3{
+  font-size: var(--ff-lg);
+}
+
+.overlay .wish-card .wish-text h3 span{
+  color: #E15656;
+}
+
+.overlay .wish-card .wish-text p{
+  font-size: var(--ff-md);
+  margin-block: 10px;
+}
+
+.overlay .wish-card .wish-control{
+  display: flex;
+  justify-content: space-between;
+  margin-top:20px;
+  padding: 0 10px;
+  width: 100%;
+}
+
+.overlay .wish-card .wish-name{
+  background: rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  position: absolute;
+  right: 0%;
+  bottom: 0%;
+  transform: translate(0%, 0%);
+  width: 100%;
+  z-index: 1;
+}
+
+.overlay .wish-card .wish-name h3{
+  font-family: 'Kaushan Script', cursive;
+  font-size: var(--ff-lg);
+  font-weight: 700;
+  text-align: center;
+  width: 100%;
+}
+
+.overlay .wish-card .wish-name h3 span{
+  color: #E15656;
+}
+
+.overlay .wish-card .wish-control button,
+.overlay .wish-card .close-btn{
+  aspect-ratio: 1/1;
+  background: none;
+  border: 2px solid #E15656;
+  border-radius: 50%;
+  color: #E15656;
+  font-size: var(--ff-md);
+  font-weight: 700;
+  padding: 5px;
+  outline: none;
+  transition: all .3s ease-in-out;
+  width: 50px;
+  z-index: 3;
+}
+
+.overlay .wish-card .wish-control button:hover,
+.overlay .wish-card .close-btn:hover{
+  background: #E15656;
+  color: #fff;
+}
+
+.overlay .wish-card .close-btn{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 3;
+}
+
+
+@media screen and (max-width: 450px){
+  :root{
+    --ff-lg: 2rem;
+    --ff-md: 1rem;
+    --ff-sm: .75rem;
+  }
+  
+  .overlay .wish-card{
+    aspect-ratio: auto;
+  }
+}
+
+@media screen and (orientation: landscape){
+  body{
+    height: 200vh;
+  }
+  
+  .con .card .card-img{
+    aspect-ratio: 1/1;
+  }
+  
+  .overlay {
+    height: 200vh;
+    position: absolute;
+  }
+}
+
+@media screen and (min-width: 750px){
+  :root {
+    --ff-lg: 2.8rem;
+    --ff-md: 1.5rem;
+    --ff-sm: 1rem;
+  }
+  
+  .con .card{
+    aspect-ratio: 1.9/1;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 20px;
+  }
+  
+  .con .card .card-img{
+    aspect-ratio: auto;
+    height: 100%;
+  }
+  
+  
+  .con .card .card-text{
+    height: 100%;
+  }
+  
+  .card .card-img .img-con{
+    animation: colorBg 15s infinite;
+    background: rgba(100, 225, 100, 0.2);
+    top: 50%;
+  }
+  
+ @keyframes colorBg{
+    
+  0% {
+    background: rgba(100, 225, 100, 0.2);
+  }
+  20% {
+    background: rgba(255, 159, 74, 0.3);
+    background: rgba(37, 245, 255, 0.3);
+  }
+  40% {
+    background: #6EFF25;
+    background: rgba(199, 37, 255, 0.2);
+  }
+  60%{
+    background: rgba(255, 37, 37, 0.3);
+  }
+  80%{
+    background: rgba(255, 218, 37, 0.2);
+  }
+  100%{
+    background: rgba(100, 225, 100, 0.2);
+  }
+}
+
+  
+  .con .card .card-img .main-img{
+    position: static;
+    transform: translate(0%, 0%);
+  }
+  
+  .con .card .card-text h3{
+    text-align: left;
+  }
+  
+  .con .card .card-text h3:after{
+    animation: none;
+    top: 90%;
+  }
+  
+  .con .card .card-text p{
+    text-align: left;
+  }
+  .con .card .card-text .btn{
+    margin: auto auto auto 0;
+  }
+  
+}
+
+@media screen and (min-width: 1024px){
+  .card .card-img .img-con{
+    top: 70%;
+  }
+}
